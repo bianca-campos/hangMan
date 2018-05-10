@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Controllers.CategoryController">
+    <VBox prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+
+    <MenuBar VBox.vgrow="NEVER">
+    <menus>
+    <Menu mnemonicParsing="false" text="Manager">
+        <items>
+            <MenuItem fx:id="mItemLevel" mnemonicParsing="false" text="Level">
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator></MenuItem>
+            <MenuItem fx:id="mItemHangMan" mnemonicParsing="false" text="Play HangMan">
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator></MenuItem>
+            <MenuItem fx:id="mItemWord" mnemonicParsing="false" text="Word">
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator></MenuItem>
+        </items>
+        <accelerator>
+            <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+        </accelerator>
+    </Menu>
+    </menus>
+    </MenuBar>
+
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <children>
+            <TableView  fx:id="categoryTv" layoutX="191.0" layoutY="353.0" prefHeight="177.0" prefWidth="423.0" onMouseClicked="#tableView_Click"  GridPane.rowIndex="1">
+                <columns>
+                    <TableColumn fx:id="colCategory" prefWidth="420.0" text="Category"/>
+                </columns>
+            </TableView>
+            <JFXButton fx:id="btnOk" styleClass="jfx-button" layoutX="244.0" layoutY="246.0" prefHeight="27.0" prefWidth="61.0" text="Ok" onAction="#btnOk_Click" />
+            <JFXButton fx:id="btnEdit" styleClass="jfx-button" layoutX="333.0" layoutY="246.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Edit" onAction="#btnEdit_Click"/>
+            <JFXButton fx:id="btnCancel" styleClass="jfx-button" layoutX="420.0" layoutY="246.0" mnemonicParsing="false" text="Cancel" onAction="#btnCancel_Click"/>
+            <JFXButton fx:id="btnDelete" styleClass="jfx-button" layoutX="508.0" layoutY="246.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Delete" onAction="#btnDelete_Click"/>
+            <JFXTextField fx:id="txtCategory" layoutX="186.0" layoutY="124.0" prefHeight="27.0" prefWidth="415.0" promptText="Enter the category"/>
+            <Label fx:id="categoryLb" layoutX="115.0" layoutY="129.0" text="Category:" />
+        </children>
+    </AnchorPane>
+    </children>
+    </VBox>
+</GridPane>

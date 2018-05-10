@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+
+<VBox prefHeight="250.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PlayerController">
+<children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="367.0" prefWidth="603.0" VBox.vgrow="ALWAYS">
+        <children>
+            <JFXTextField fx:id="txtPlayer" layoutX="114.0" layoutY="81.0" prefHeight="27.0" prefWidth="277.0" />
+            <JFXButton fx:id="btnOk" styleClass="jfx-button" layoutX="131.0" layoutY="145.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Ok" onAction="#btnOk_Click"/>
+            <Label layoutX="17.0" layoutY="86.0" text="Name Player:" />
+            <JFXButton fx:id="btnCancel" styleClass="jfx-button" layoutX="222.0" layoutY="145.0" mnemonicParsing="false" text="Cancel" onAction="#btnCancel_Click"/>
+        </children>
+    </AnchorPane>
+</children>
+</VBox>

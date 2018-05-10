@@ -1,0 +1,24 @@
+
+
+/*Raised button example */
+.jfx-button {
+    -jfx-button-type: RAISED;
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+    -FX-font-family: System Bold;
+}
+
+.jfx-label {
+    -FX-font-family: System Bold;
+    -FX-font-size: 15.0;
+}
+
+.jfx-label-guess {
+    -FX-font-family: System Bold;
+    -FX-font-size: 20.0;
+}
+
+.jfx-txt {
+    -FX-font-size: 20.0;
+}
+

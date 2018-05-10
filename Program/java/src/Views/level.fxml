@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Controllers.LevelController">
+    <VBox prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <MenuBar VBox.vgrow="NEVER">
+                <menus>
+                    <Menu fx:id="menuManager" mnemonicParsing="false" text="Manager">
+                        <items>
+                            <MenuItem fx:id="mItemCategory" mnemonicParsing="false" text="Category">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemHangMan" mnemonicParsing="false" text="Play HangMan">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemWord" mnemonicParsing="false" text="Word">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                        </items>
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+                <children>
+                    <JFXButton styleClass="jfx-button" layoutX="258.0" layoutY="300.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Ok" onAction="#btnOk_Click"/>
+                    <JFXButton styleClass="jfx-button" layoutX="347.0" layoutY="300.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Edit" onAction="#btnEdit_Click"/>
+                    <JFXButton styleClass="jfx-button" layoutX="436.0" layoutY="300.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Cancel" onAction="#btnCancel_Click"/>
+                    <JFXButton styleClass="jfx-button" layoutX="525.0" layoutY="300.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Delete" onAction="#btnDelete_Click"/>
+                    <TableView fx:id="levelTv" layoutX="38.0" layoutY="369.0" prefHeight="177.0" prefWidth="763.0" onMouseClicked="#tableView_Click"  GridPane.rowIndex="1">
+                        <columns>
+                            <TableColumn fx:id="colLevel" prefWidth="310.0" text="Level" />
+                            <TableColumn fx:id="colMinLetter" prefWidth="90.0" text="Min letter" />
+                            <TableColumn fx:id="colMaxLetter" prefWidth="90.0" text="Max letter" />
+                            <TableColumn fx:id="colNumTry" prefWidth="90.0" text="Num try" />
+                            <TableColumn fx:id="colPtLetter" prefWidth="90.0" text="Pt per letter" />
+                            <TableColumn fx:id="colExtraPt" prefWidth="90.0" text="Extra pt" />
+                        </columns>
+                    </TableView>
+                    <Label layoutX="128.0" layoutY="60.0" text="Level:" />
+                    <Label layoutX="76.0" layoutY="115.0" text="Min. of letters:" />
+                    <Label layoutX="73.0" layoutY="169.0" text="Max. of letters:" />
+                    <Label layoutX="74.0" layoutY="223.0" text="Number os try:" />
+                    <Label layoutX="413.0" layoutY="169.0" text="Points per letter:" />
+                    <Label layoutX="438.0" layoutY="223.0" text="Extra points:" />
+                    <JFXTextField fx:id="txtLevel" layoutX="180.0" layoutY="55.0" prefHeight="27.0" prefWidth="415.0" promptText="Enter the level"/>
+                    <JFXTextField fx:id="txtMinLetter" layoutX="180.0" layoutY="110.0" />
+                    <JFXTextField fx:id="txtMaxLetter" layoutX="180.0" layoutY="164.0" />
+                    <JFXTextField fx:id="txtNumTry" layoutX="180.0" layoutY="218.0" />
+                    <JFXTextField fx:id="txtPtLetter" layoutX="530.0" layoutY="164.0" />
+                    <JFXTextField fx:id="txtExtraPt" layoutX="530.0" layoutY="218.0" />
+                </children>
+            </AnchorPane>
+
+        </children>
+    </VBox>
+</GridPane>

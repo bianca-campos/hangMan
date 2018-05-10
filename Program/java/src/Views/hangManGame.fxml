@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.image.ImageView?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Controllers.HangManGameController">
+    <VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <MenuBar VBox.vgrow="NEVER">
+                <menus>
+                    <Menu fx:id="menuManager" mnemonicParsing="false" text="Manager">
+                        <items>
+                            <MenuItem fx:id="mItemCategory" mnemonicParsing="false" text="Category">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemLevel" mnemonicParsing="false" text="Level">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemWord" mnemonicParsing="false" text="Word">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                        </items>
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="840.0" VBox.vgrow="ALWAYS">
+                <children>
+                    <Label layoutX="98.0" layoutY="25.0" text="Category:" />
+                    <Label layoutX="454.0" layoutY="25.0" text="Level:" />
+                    <JFXButton styleClass="jfx-button" layoutX="760.0" layoutY="20.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Play" onAction="#btnPlay_Click"/>
+                    <JFXButton styleClass="jfx-button" layoutX="760.0" layoutY="553.0" mnemonicParsing="false" text="Cancel" onAction="#btnCancel_Click"/>
+                    <Label styleClass="jfx-label-guess" layoutX="19.0" layoutY="80.0" text="Guess Left:" />
+                    <Label fx:id="lbGuessLeft" styleClass="jfx-label-guess" layoutX="135.0" layoutY="80.0" text="" />
+                    <Label styleClass="jfx-label" layoutX="706.0" layoutY="80.0" text="Score:" />
+                    <Label fx:id="lbScore"  layoutX="766.0" layoutY="80.0" text="" />
+                    <Label styleClass="jfx-label" layoutX="706.0" layoutY="107.0" text="Player:" />
+                    <Label fx:id="lbNamePlayer"  layoutX="765.0" layoutY="107.0" text="" />
+                    <Label styleClass="jfx-label" layoutX="657.0" layoutY="135.0" text="Record Score:" />
+                    <Label fx:id="lbRecordScore" layoutX="765.0" layoutY="135.0" text="" />
+                    <Label styleClass="jfx-label" layoutX="607.0" layoutY="164.0" text="Player Record Score:" />
+                    <Label fx:id="lbWord" layoutX="765.0" layoutY="365.0" text="" />
+                    <Label fx:id="lbNameRecordScore"  layoutX="765.0" layoutY="165.0" text="name" />
+                    <JFXButton fx:id="btnA" styleClass="jfx-button" layoutX="169.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="A" onAction="#btnA_Click"/>
+                    <JFXButton fx:id="btnB" styleClass="jfx-button" layoutX="221.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="B" onAction="#btnB_Click"/>
+                    <JFXButton fx:id="btnC" styleClass="jfx-button" layoutX="273.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="C" onAction="#btnC_Click"/>
+                    <JFXButton fx:id="btnD" styleClass="jfx-button" layoutX="325.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="D" onAction="#btnD_Click"/>
+                    <JFXButton fx:id="btnE" styleClass="jfx-button" layoutX="376.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="E" onAction="#btnE_Click"/>
+                    <JFXButton fx:id="btnF" styleClass="jfx-button" layoutX="427.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="F" onAction="#btnF_Click"/>
+                    <JFXButton fx:id="btnG" styleClass="jfx-button" layoutX="479.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="G" onAction="#btnG_Click"/>
+                    <JFXButton fx:id="btnH" styleClass="jfx-button" layoutX="531.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="H" onAction="#btnH_Click"/>
+                    <JFXButton fx:id="btnI" styleClass="jfx-button" layoutX="583.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="I" onAction="#btnI_Click"/>
+                    <JFXButton fx:id="btnJ" styleClass="jfx-button" layoutX="635.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="J" onAction="#btnJ_Click"/>
+                    <JFXButton fx:id="btnK" styleClass="jfx-button" layoutX="687.0" layoutY="466.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="k" onAction="#btnK_Click"/>
+                    <JFXButton fx:id="btnL" styleClass="jfx-button" layoutX="221.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="L" onAction="#btnL_Click"/>
+                    <JFXButton fx:id="btnM" styleClass="jfx-button" layoutX="273.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="M" onAction="#btnM_Click"/>
+                    <JFXButton fx:id="btnN" styleClass="jfx-button" layoutX="325.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="N" onAction="#btnN_Click"/>
+                    <JFXButton fx:id="btnO" styleClass="jfx-button" layoutX="376.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="O" onAction="#btnO_Click"/>
+                    <JFXButton fx:id="btnP" styleClass="jfx-button" layoutX="427.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="P" onAction="#btnP_Click"/>
+                    <JFXButton fx:id="btnQ" styleClass="jfx-button" layoutX="479.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="Q" onAction="#btnQ_Click"/>
+                    <JFXButton fx:id="btnU" styleClass="jfx-button" layoutX="274.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="U" onAction="#btnU_Click"/>
+                    <JFXButton fx:id="btnV" styleClass="jfx-button" layoutX="325.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="V" onAction="#btnV_Click"/>
+                    <JFXButton fx:id="btnT" styleClass="jfx-button" layoutX="635.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="T" onAction="#btnT_Click"/>
+                    <JFXButton fx:id="btnS" styleClass="jfx-button" layoutX="583.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="S" onAction="#btnS_Click"/>
+                    <JFXButton fx:id="btnR" styleClass="jfx-button" layoutX="531.0" layoutY="503.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="R" onAction="#btnR_Click"/>
+                    <JFXButton fx:id="btnW" styleClass="jfx-button" layoutX="376.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="W" onAction="#btnW_Click"/>
+                    <JFXButton fx:id="btnX" styleClass="jfx-button" layoutX="429.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="X" onAction="#btnX_Click"/>
+                    <JFXButton fx:id="btnY" styleClass="jfx-button" layoutX="479.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="Y" onAction="#btnY_Click"/>
+                    <JFXButton fx:id="btnZ" styleClass="jfx-button" layoutX="531.0" layoutY="539.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="Z" onAction="#btnZ_Click"/>
+                    <JFXComboBox fx:id="comCategory" layoutX="165.0" layoutY="20.0" prefWidth="220.0" promptText="Select a category" />
+                    <JFXComboBox fx:id="comlLevel" layoutX="507.0" layoutY="20.0" prefHeight="27.0" prefWidth="220.0" promptText="Select a level" />
+                    <JFXTextField fx:id="txtWord1" styleClass="jfx-txt" layoutX="120.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord2" styleClass="jfx-txt" layoutX="155.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord3" styleClass="jfx-txt" layoutX="190.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord4" styleClass="jfx-txt" layoutX="225.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord5" styleClass="jfx-txt" layoutX="260.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord6" styleClass="jfx-txt" layoutX="295.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord7" styleClass="jfx-txt" layoutX="330.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord8" styleClass="jfx-txt" layoutX="365.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord9" styleClass="jfx-txt" layoutX="400.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord10" styleClass="jfx-txt" layoutX="435.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord11" styleClass="jfx-txt" layoutX="470.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord12" styleClass="jfx-txt" layoutX="505.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord13" styleClass="jfx-txt" layoutX="540.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord14" styleClass="jfx-txt" layoutX="575.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord15" styleClass="jfx-txt" layoutX="610.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord16" styleClass="jfx-txt" layoutX="645.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <JFXTextField fx:id="txtWord17" styleClass="jfx-txt" layoutX="680.0" layoutY="407.0" prefHeight="27.0" prefWidth="28.0" visible="false"/>
+                    <ImageView fx:id="img" fitHeight="320.0" fitWidth="370.0" layoutX="181.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+                </children>
+            </AnchorPane>
+
+        </children>
+    </VBox>
+</GridPane>

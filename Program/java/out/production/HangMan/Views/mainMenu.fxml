@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<AnchorPane xmlns="http://javafx.com/javafx"-->
+            <!--xmlns:fx="http://javafx.com/fxml"-->
+            <!--fx:controller="Views.Menu"-->
+            <!--prefHeight="400.0" prefWidth="600.0">-->
+
+<!--</AnchorPane>-->
+<?import javafx.scene.input.KeyCodeCombination?>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Controllers.MenuController">
+    <VBox prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <MenuBar VBox.vgrow="NEVER">
+                <menus>
+                    <Menu fx:id="menuManager" mnemonicParsing="false" text="Manager">
+                        <items>
+                            <MenuItem fx:id="mItemCategory" mnemonicParsing="false" text="Category">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemLevel" mnemonicParsing="false" text="Level">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemHangMan" mnemonicParsing="false" text="Play HangMan">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                            <MenuItem fx:id="mItemWord" mnemonicParsing="false" text="Word">
+                                <accelerator>
+                                    <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator></MenuItem>
+                        </items>
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="M" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </children>
+    </VBox>
+</GridPane>
