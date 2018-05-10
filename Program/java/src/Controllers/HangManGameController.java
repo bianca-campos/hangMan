@@ -244,7 +244,7 @@ public class HangManGameController implements Initializable {
         checkLetter("Z", btnZ);
     }
 
-    public void hideButtons(){
+    private void hideButtons(){
         btnA.setDisable(true);
         btnB.setDisable(true);
         btnC.setDisable(true);
@@ -273,7 +273,7 @@ public class HangManGameController implements Initializable {
         btnZ.setDisable(true);
     }
 
-    public void showButtons() {
+    private void showButtons() {
         btnA.setDisable(false);
         btnB.setDisable(false);
         btnC.setDisable(false);
@@ -424,7 +424,7 @@ public class HangManGameController implements Initializable {
         hideButtons();
         lbScore.setText(null);
         lbNamePlayer.setText(null);
-        txtWord1.setText(null);
+//        txtWord1.setText(null);
     }
 
     public void winHangMan(){
@@ -442,7 +442,6 @@ public class HangManGameController implements Initializable {
                 stage.setScene(new Scene(root1));
                 controller.stage = stage;
                 stage.showAndWait();
-                getHighScore();
                 btnCancel_Click(null);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -463,6 +462,7 @@ public class HangManGameController implements Initializable {
         score.setIdPlayer(dbScore.getLastPlayer().getId());
         dbScore.insert(score);
         lbNamePlayer.setText(dbScore.getLastPlayer().getName());
+        getHighScore();
     }
 
 

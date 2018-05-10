@@ -12,11 +12,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
 
-<!--<AnchorPane xmlns="http://javafx.com/javafx"-->
-<!--xmlns:fx="http://javafx.com/fxml"-->
-<!--fx:controller="Views.Category"-->
-<!--prefHeight="400.0" prefWidth="600.0">-->
-<!--</AnchorPane>-->
 
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Controllers.CategoryController">
