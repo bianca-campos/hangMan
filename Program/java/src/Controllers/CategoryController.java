@@ -1,6 +1,5 @@
 package Controllers;
 
-
 import Models.Category;
 import Models.DBCategory;
 import Models.iScreenTemplate;
@@ -13,8 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
-
 
 
 public class CategoryController implements iScreenTemplate, Initializable {
@@ -37,16 +36,24 @@ public class CategoryController implements iScreenTemplate, Initializable {
         Category category = new Category();
         category.setName(txtCategory.getText());
         ArrayList<String> msgList = category.validate();
-        if (msgList.size() == 0){
-            if (selectedId == 0){
+        if (msgList.size() == 0) {
+            if (selectedId == 0) {
                 dbcategory.insert(category);
+                tableView_Load();
             } else {
-                category.setId(selectedId);
-                dbcategory.update(category);
-                selectedId = 0;
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to edit the category?", ButtonType.OK, ButtonType.CANCEL);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    category.setId(selectedId);
+                    dbcategory.update(category);
+                    selectedId = 0;
             }
-            tableView_Load();
-            clearTxt();
+                tableView_Load();
+                clearTxt();
+                if (result.get() == ButtonType.CANCEL){
+                    clearTxt();
+                }
+            }
         }
     }
 
@@ -74,10 +81,18 @@ public class CategoryController implements iScreenTemplate, Initializable {
         TableViewSelectionModel tsm = categoryTv.getSelectionModel();
         Category category = (Category) tsm.getSelectedItem();
         if (selectedId != 0) {
-            dbcategory.delete(category);
-            tableView_Load();
-            clearTxt();
-            txtCategory.setDisable(false);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete the category?", ButtonType.OK, ButtonType.CANCEL);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                dbcategory.delete(category);
+                tableView_Load();
+                clearTxt();
+                txtCategory.setDisable(false);
+            }
+            if (result.get() == ButtonType.CANCEL){
+                clearTxt();
+                txtCategory.setDisable(false);
+            }
         }
     }
 
