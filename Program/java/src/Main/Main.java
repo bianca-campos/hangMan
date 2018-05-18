@@ -12,9 +12,9 @@ public class Main extends Application{
         public void start(Stage primaryStage) throws Exception{
 
             // Category - test
-            Parent root = FXMLLoader.load(getClass().getResource("../Views/category.fxml"));
-            primaryStage.setTitle("Category");
-            Scene mainScene = new Scene(root, 840, 600);
+//            Parent root = FXMLLoader.load(getClass().getResource("../Views/category.fxml"));
+//            primaryStage.setTitle("Category");
+//            Scene mainScene = new Scene(root, 840, 600);
 
 //            // Level - presentation
 //            Parent root = FXMLLoader.load(getClass().getResource("../Views/Level.fxml"));
@@ -22,9 +22,9 @@ public class Main extends Application{
 //            Scene mainScene = new Scene(root, 840, 600);
 //
             // Word - demo
-//            Parent root = FXMLLoader.load(getClass().getResource("../Views/word.fxml"));
-//            primaryStage.setTitle("Word");
-//            Scene mainScene = new Scene(root, 840, 600);
+            Parent root = FXMLLoader.load(getClass().getResource("../Views/word.fxml"));
+            primaryStage.setTitle("Word");
+            Scene mainScene = new Scene(root, 840, 600);
 //
 //            // Game
 //            Parent root = FXMLLoader.load(getClass().getResource("../Views/hangManGame.fxml"));

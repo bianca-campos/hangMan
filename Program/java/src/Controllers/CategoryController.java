@@ -20,13 +20,9 @@ public class CategoryController implements iScreenTemplate, Initializable {
     @FXML
     private JFXTextField txtCategory;
     @FXML
-    private Label categoryLb;
-    @FXML
     private TableView<Category> categoryTv;
     @FXML
     private TableColumn<Category, String> colCategory;
-    @FXML
-    private TableRow<String> categoryTr;
     int selectedId = 0;
 
 
@@ -39,33 +35,36 @@ public class CategoryController implements iScreenTemplate, Initializable {
         if (msgList.size() == 0) {
             if (selectedId == 0) {
                 dbcategory.insert(category);
-                tableView_Load();
             } else {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to edit the category?", ButtonType.OK, ButtonType.CANCEL);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to edit the Category?", ButtonType.OK, ButtonType.CANCEL);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
                     category.setId(selectedId);
                     dbcategory.update(category);
                     selectedId = 0;
-            }
-                tableView_Load();
-                clearTxt();
+                }
                 if (result.get() == ButtonType.CANCEL){
-                    clearTxt();
+                    selectedId = 0;
                 }
             }
+            tableView_Load();
+            clearTxt();
         }
     }
 
     @Override
     public void btnEdit_Click(ActionEvent actionEvent) {
-        txtCategory.setDisable(false);
+        enableTxt();
     }
 
     @Override
     public void btnCancel_Click(ActionEvent actionEvent) {
         clearTxt();
         selectedId = 0;
+        enableTxt();
+    }
+
+    public void enableTxt() {
         txtCategory.setDisable(false);
     }
 
@@ -81,18 +80,15 @@ public class CategoryController implements iScreenTemplate, Initializable {
         TableViewSelectionModel tsm = categoryTv.getSelectionModel();
         Category category = (Category) tsm.getSelectedItem();
         if (selectedId != 0) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete the category?", ButtonType.OK, ButtonType.CANCEL);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete the Category?", ButtonType.OK, ButtonType.CANCEL);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 dbcategory.delete(category);
                 tableView_Load();
-                clearTxt();
-                txtCategory.setDisable(false);
             }
-            if (result.get() == ButtonType.CANCEL){
-                clearTxt();
-                txtCategory.setDisable(false);
-            }
+            selectedId = 0;
+            clearTxt();
+            enableTxt();
         }
     }
 

@@ -11,6 +11,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.util.StringConverter;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class WordController implements iScreenTemplate, Initializable{
@@ -44,9 +45,16 @@ public class WordController implements iScreenTemplate, Initializable{
             if (selectedId == 0){
                 dbword.insert(word);
             } else {
-                word.setId(selectedId);
-                dbword.update(word);
-                selectedId = 0;
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to edit the Word?", ButtonType.OK, ButtonType.CANCEL);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    word.setId(selectedId);
+                    dbword.update(word);
+                    selectedId = 0;
+                }
+                if (result.get() == ButtonType.CANCEL){
+                    selectedId = 0;
+                }
             }
             tableView_Load();
             clearTxt();
@@ -55,6 +63,10 @@ public class WordController implements iScreenTemplate, Initializable{
 
     @Override
     public void btnEdit_Click(ActionEvent actionEvent) {
+        enableFIelds();
+    }
+
+    public void enableFIelds() {
         txtWord.setDisable(false);
         comCategory.setDisable(false);
         comlLevel.setDisable(false);
@@ -64,9 +76,7 @@ public class WordController implements iScreenTemplate, Initializable{
     public void btnCancel_Click(ActionEvent actionEvent) {
         clearTxt();
         selectedId = 0;
-        txtWord.setDisable(false);
-        comCategory.setDisable(false);
-        comlLevel.setDisable(false);
+        enableFIelds();
     }
 
     public void clearTxt() {
@@ -81,9 +91,16 @@ public class WordController implements iScreenTemplate, Initializable{
         TableViewSelectionModel tsm = wordTv.getSelectionModel();
         Word word = (Word) tsm.getSelectedItem();
         if (selectedId != 0) {
-            dbWord.delete(word);
-            tableView_Load();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete the Word?", ButtonType.OK, ButtonType.CANCEL);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                dbWord.delete(word);
+                tableView_Load();
+            }
+            selectedId = 0;
             clearTxt();
+            enableFIelds();
+
         }
     }
 

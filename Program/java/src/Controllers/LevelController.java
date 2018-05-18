@@ -5,12 +5,15 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class LevelController implements iScreenTemplate, Initializable {
@@ -57,9 +60,16 @@ public class LevelController implements iScreenTemplate, Initializable {
             if (selectedId == 0) {
                 dblevel.insert(level);
             } else {
-                level.setId(selectedId);
-                dblevel.update(level);
-                selectedId = 0;
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to edit the Level?", ButtonType.OK, ButtonType.CANCEL);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    level.setId(selectedId);
+                    dblevel.update(level);
+                    selectedId = 0;
+                }
+                if (result.get() == ButtonType.CANCEL) {
+                    selectedId = 0;
+                }
             }
             tableView_Load();
             clearTxt();
@@ -68,18 +78,36 @@ public class LevelController implements iScreenTemplate, Initializable {
 
     @Override
     public void btnEdit_Click(ActionEvent actionEvent) {
-        txtLevel.setDisable(false);
-        txtMinLetter.setDisable(false);
-        txtMaxLetter.setDisable(false);
-        txtNumTry.setDisable(false);
-        txtPtLetter.setDisable(false);
-        txtExtraPt.setDisable(false);
+        enableFields();
     }
+
 
     @Override
     public void btnCancel_Click(ActionEvent actionEvent) {
         clearTxt();
         selectedId = 0;
+        enableFields();
+    }
+
+    @Override
+    public void btnDelete_Click(ActionEvent actionEvent) {
+        DBLevel dblevel = new DBLevel();
+        TableView.TableViewSelectionModel tsm = levelTv.getSelectionModel();
+        Level level = (Level) tsm.getSelectedItem();
+        if (selectedId != 0) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete the Level?", ButtonType.OK, ButtonType.CANCEL);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                dblevel.delete(level);
+                tableView_Load();
+            }
+            selectedId = 0;
+            clearTxt();
+            enableFields();
+        }
+    }
+
+    public void enableFields() {
         txtLevel.setDisable(false);
         txtMinLetter.setDisable(false);
         txtMaxLetter.setDisable(false);
@@ -96,18 +124,6 @@ public class LevelController implements iScreenTemplate, Initializable {
         txtPtLetter.setText(null);
         txtExtraPt.setText(null);
 
-    }
-
-    @Override
-    public void btnDelete_Click(ActionEvent actionEvent) {
-        DBLevel dblevel = new DBLevel();
-        TableView.TableViewSelectionModel tsm = levelTv.getSelectionModel();
-        Level level = (Level) tsm.getSelectedItem();
-        if (selectedId != 0) {
-            dblevel.delete(level);
-            tableView_Load();
-            clearTxt();
-        }
     }
 
     @Override
